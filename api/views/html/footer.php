@@ -5,7 +5,7 @@
             <script>
                 document.write(new Date().getFullYear());
             </script>
-            Sistema Cultural UNIANDES
+            Sistema Peluquería Canina
         </div>
         <div>
             <!-- aquí podrías poner un texto extra si quieres -->

@@ -2,9 +2,9 @@
     <div class="app-brand demo">
         <a href="../home.php" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <!-- podrías poner un logo aquí -->
+                <!-- aquí podrías poner un logo -->
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">UNIANDES</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">Peluquería Canina</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -32,30 +32,23 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../organizador/organizador.views.php" target="base" class="menu-link">
-                        <?php $_SESSION['rutas'] = 'Organizadores'; ?>
-                        <div data-i18n="Without navbar">Organizadores</div>
+                    <a href="../dueno/dueno.views.php" target="base" class="menu-link">
+                        <?php $_SESSION['rutas'] = 'Dueños'; ?>
+                        <div data-i18n="Duenos">Dueños</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="../participante/participante.views.php" target="base" class="menu-link">
-                        <?php $_SESSION['rutas'] = 'Participantes'; ?>
-                        <div data-i18n="Container">Participantes</div>
+                    <a href="../perro/perro.views.php" target="base" class="menu-link">
+                        <?php $_SESSION['rutas'] = 'Perros'; ?>
+                        <div data-i18n="Perros">Perros</div>
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="../actividad/actividad.views.php" target="base" class="menu-link">
-                        <?php $_SESSION['rutas'] = 'Actividades'; ?>
-                        <div data-i18n="Fluid">Actividades</div>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a href="../act_participante/act_participante.views.php" target="base" class="menu-link">
-                        <?php $_SESSION['rutas'] = 'Actividad - Participante'; ?>
-                        <div data-i18n="Blank">Actividad - Participante</div>
+                    <a href="../cita/cita.views.php" target="base" class="menu-link">
+                        <?php $_SESSION['rutas'] = 'Citas'; ?>
+                        <div data-i18n="Citas">Citas</div>
                     </a>
                 </li>
             </ul>

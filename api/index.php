@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-  <title>Sistema Cultural - UNIANDES</title>
+  <title>Sistema de Agenda de Citas - El Buen Can</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./public/images/logo.ico" />
@@ -43,27 +43,25 @@
           <div class="card-body" style="text-align: center;">
             <!-- Logo / Título -->
             <div class="app-brand justify-content-center mb-3">
-              <h1>Sistema Cultural<br><small>UNIANDES</small></h1>
+              <h1>El Buen Can<br><small>Sistema de Agenda de Citas</small></h1>
             </div>
 
             <p class="mb-3">Seleccione un módulo para gestionar la información:</p>
 
             <div class="d-grid gap-2">
-              <a href="./views/organizador/organizador.views.php" class="btn btn-primary">
-                Organizadores
-                </a>
 
-                <a href="./views/participante/participante.views.php" class="btn btn-secondary">
-                Participantes
-                </a>
+              <a href="./views/dueno/dueno.views.php" class="btn btn-primary">
+                Dueños
+              </a>
 
-                <a href="./views/actividad/actividad.views.php" class="btn btn-info">
-                Actividades
-                </a>
+              <a href="./views/perro/perro.views.php" class="btn btn-secondary">
+                Perros
+              </a>
 
-                <a href="./views/act_participante/act_participante.views.php" class="btn btn-warning">
-                Actividad - Participante
-                </a>
+              <a href="./views/cita/cita.views.php" class="btn btn-info">
+                Citas
+              </a>
+
             </div>
 
           </div>

@@ -1,58 +1,63 @@
 <?php
 require_once('../config/conexion.php');
 
-class Actividad_Participante_Model {
+class Cita_Model {
 
+    // Obtener todas las citas
     public function todos() {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
-        // Tabla intermedia Actividad_Participante
-        $cadena = "SELECT * FROM actividad_participante";
+        $cadena = "SELECT * FROM citas";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();
-        return $datos;
+        return $datos; // resultset
     }
 
+    // Obtener una cita por id
     public function uno($id) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
         $id = intval($id);
-        $cadena = "SELECT * FROM actividad_participante WHERE id = $id";
+        $cadena = "SELECT * FROM citas WHERE id = $id";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();
         return $datos;
     }
 
-    public function insertar($id_actividad, $id_participante) {
+    // Insertar una nueva cita
+    // Campos: id_perro, fecha_hora (YYYY-MM-DD HH:MM:SS), servicio, estado, notas
+    public function insertar($id_perro, $fecha_hora, $servicio, $estado, $notas) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
-        $id_actividad    = intval($id_actividad);
-        $id_participante = intval($id_participante);
+        $id_perro = intval($id_perro);
 
-        $cadena = "INSERT INTO actividad_participante (id_actividad, id_participante)
-                   VALUES ($id_actividad, $id_participante)";
+        $cadena = "INSERT INTO citas (id_perro, fecha_hora, servicio, estado, notas)
+                   VALUES ($id_perro, '$fecha_hora', '$servicio', '$estado', '$notas')";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();
-        return $datos;
+        return $datos; // true/false
     }
 
-    public function actualizar($id, $id_actividad, $id_participante) {
+    // Actualizar una cita
+    public function actualizar($id, $id_perro, $fecha_hora, $servicio, $estado, $notas) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
-        $id             = intval($id);
-        $id_actividad   = intval($id_actividad);
-        $id_participante = intval($id_participante);
+        $id       = intval($id);
+        $id_perro = intval($id_perro);
 
-        $cadena = "UPDATE actividad_participante 
-                   SET id_actividad = $id_actividad,
-                       id_participante = $id_participante
+        $cadena = "UPDATE citas 
+                   SET id_perro = $id_perro,
+                       fecha_hora = '$fecha_hora',
+                       servicio = '$servicio',
+                       estado = '$estado',
+                       notas = '$notas'
                    WHERE id = $id";
         $datos = mysqli_query($conexion, $cadena);
 
@@ -60,15 +65,17 @@ class Actividad_Participante_Model {
         return $datos;
     }
 
+    // Eliminar una cita
     public function eliminar($id) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
         $id = intval($id);
-        $cadena = "DELETE FROM actividad_participante WHERE id = $id";
+        $cadena = "DELETE FROM citas WHERE id = $id";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();
         return $datos;
     }
 }
+?>

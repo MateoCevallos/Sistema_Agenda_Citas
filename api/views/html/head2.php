@@ -1,9 +1,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-<title>Sistema Cultural UNIANDES</title>
+<title>Sistema Peluquería Canina</title>
 
-<meta name="description" content="Sistema de gestión de actividades culturales" />
+<meta name="description" content="Sistema de gestión de citas para peluquería canina" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="../../public/images/logo.ico" />
@@ -11,7 +11,8 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Public_Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<!-- Public_Sans? -->
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
 <!-- Icons -->
 <link rel="stylesheet" href="../../public/assets/vendor/fonts/boxicons.css" />

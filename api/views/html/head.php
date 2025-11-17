@@ -1,9 +1,9 @@
 <meta charset="utf-8" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-<title>Sistema Cultural UNIANDES</title>
+<title>Sistema Peluquería Canina</title>
 
-<meta name="description" content="Sistema de gestión de actividades culturales" />
+<meta name="description" content="Sistema de gestión de citas para peluquería canina" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="../public/images/logo.ico" />
