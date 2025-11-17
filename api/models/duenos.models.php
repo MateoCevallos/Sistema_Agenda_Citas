@@ -16,12 +16,12 @@ class Dueno_Model {
     }
 
     // Obtener un dueño por id
-    public function uno($id) {
+    public function uno($id_dueno) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
-        $id = intval($id);
-        $cadena = "SELECT * FROM duenos WHERE id = $id";
+        $id_dueno = intval($id_dueno);
+        $cadena = "SELECT * FROM duenos WHERE id = $id_dueno";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();
@@ -42,11 +42,11 @@ class Dueno_Model {
     }
 
     // Actualizar un dueño
-    public function actualizar($id, $nombre, $apellido, $telefono, $email, $direccion) {
+    public function actualizar($id_dueno, $nombre, $apellido, $telefono, $email, $direccion) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
-        $id = intval($id);
+        $id_dueno = intval($id_dueno);
 
         $cadena = "UPDATE duenos 
                    SET nombre='$nombre',
@@ -54,7 +54,7 @@ class Dueno_Model {
                        telefono='$telefono',
                        email='$email',
                        direccion='$direccion'
-                   WHERE id = $id";
+                   WHERE id = $id_dueno";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();
@@ -62,12 +62,12 @@ class Dueno_Model {
     }
 
     // Eliminar un dueño
-    public function eliminar($id) {
+    public function eliminar($id_dueno) {
         $con = new Clase_Conectar();
         $conexion = $con->Procedimiento_Conectar();
 
-        $id = intval($id);
-        $cadena = "DELETE FROM duenos WHERE id = $id";
+        $id_dueno = intval($id_dueno);
+        $cadena = "DELETE FROM duenos WHERE id = $id_dueno";
         $datos = mysqli_query($conexion, $cadena);
 
         $con->conexion->close();

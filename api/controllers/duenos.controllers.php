@@ -29,9 +29,9 @@ switch ($op) {
     case 'uno':
         // Validamos que venga el id del dueño
         if (isset($_POST['id'])) {
-            $id = intval($_POST['id']);
+            $id_dueno = intval($_POST['id']);
 
-            $datos = $dueno->uno($id);
+            $datos = $dueno->uno($id_dueno);
             $res = mysqli_fetch_assoc($datos);
 
             // Si no se encontró, devolvemos objeto vacío
@@ -61,7 +61,7 @@ switch ($op) {
         break;
 
     case 'actualizar':
-        $id        = intval($_POST['id']);
+        $id_dueno        = intval($_POST['id']);
         $nombre    = $_POST['nombre'];
         $apellido  = $_POST['apellido'];
         $telefono  = $_POST['telefono'];
@@ -69,7 +69,7 @@ switch ($op) {
         $direccion = $_POST['direccion'];
 
         $datos = $dueno->actualizar(
-            $id,
+            $id_dueno,
             $nombre,
             $apellido,
             $telefono,
@@ -81,9 +81,9 @@ switch ($op) {
         break;
 
     case 'eliminar':
-        $id = intval($_POST['id']);
+        $id_dueno = intval($_POST['id']);
 
-        $datos = $dueno->eliminar($id);
+        $datos = $dueno->eliminar($id_dueno);
         echo json_encode($datos);
         break;
 

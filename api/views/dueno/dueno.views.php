@@ -47,7 +47,7 @@ require_once('../html/head2.php');
             </div>
 
             <form id="form_dueno" method="post">
-                <input type="hidden" name="id_dueno" id="id_dueno">
+                <input type="hidden" name="id" id="id">
                 <div class="modal-body">
                     <div class="form-group mb-2">
                         <label for="nombre">Nombre</label>

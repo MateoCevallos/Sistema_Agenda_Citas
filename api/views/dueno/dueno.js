@@ -34,7 +34,12 @@ function init() {
 var CargaLista = () => {
   var html = "";
   $.get(ruta + "todos", (duenos) => {
-    duenos = JSON.parse(duenos);
+    try {
+      duenos = JSON.parse(duenos);
+    } catch (e) {
+      console.error("Error parseando lista de dueños:", e, duenos);
+      return;
+    }
 
     $.each(duenos, (index, d) => {
       html += `<tr>
@@ -61,12 +66,11 @@ var GuardarEditar = (e) => {
   e.preventDefault();
   var formData = new FormData($("#form_dueno")[0]);
   var accion = "";
-  var id = document.getElementById("id_dueno").value; // leemos el hidden
+  var id = document.getElementById("id").value; // hidden del form
 
   if (parseInt(id) > 0) {
     accion = ruta + "actualizar";
-    // el controlador espera "id", no "id_dueno"
-    formData.append("id", id);
+    formData.append("id", id); // el controlador espera "id"
   } else {
     accion = ruta + "insertar";
   }
@@ -80,7 +84,14 @@ var GuardarEditar = (e) => {
     cache: false,
     success: (respuesta) => {
       console.log("respuesta guardar/editar dueño:", respuesta);
-      respuesta = JSON.parse(respuesta); // true/false o "ok"
+
+      try {
+        respuesta = JSON.parse(respuesta); // true/false o "ok"
+      } catch (e) {
+        console.error("Error parseando respuesta guardar/editar:", e, respuesta);
+        alert("Error inesperado en el servidor");
+        return;
+      }
 
       if (respuesta == "ok" || respuesta === true) {
         alert("Se guardó con éxito");
@@ -97,12 +108,29 @@ var GuardarEditar = (e) => {
 // ======================= EDITAR =======================
 
 var editar = (id) => {
-  // el controlador 'uno' espera "id"
+  // el backend espera "id"
   $.post(ruta + "uno", { id: id }, (dueno) => {
     console.log("uno dueno:", dueno);
-    dueno = JSON.parse(dueno);
 
-    document.getElementById("id_dueno").value   = dueno.id;
+    try {
+      dueno = JSON.parse(dueno);
+    } catch (e) {
+      console.error("Error parseando dueño (uno):", e, dueno);
+      alert("Error al obtener los datos del dueño");
+      return;
+    }
+
+    if (dueno.error) {
+      alert("Error al obtener el dueño: " + dueno.error);
+      return;
+    }
+
+    if (!dueno || Object.keys(dueno).length === 0) {
+      alert("No se encontró el dueño");
+      return;
+    }
+
+    document.getElementById("id").value         = dueno.id;
     document.getElementById("nombre").value     = dueno.nombre   || "";
     document.getElementById("apellido").value   = dueno.apellido || "";
     document.getElementById("telefono").value   = dueno.telefono || "";
@@ -126,10 +154,22 @@ var eliminar = (id) => {
     confirmButtonText: "Eliminar",
   }).then((result) => {
     if (result.isConfirmed) {
-      // el controlador 'eliminar' también espera "id"
+      // el backend espera "id"
       $.post(ruta + "eliminar", { id: id }, (resp) => {
         console.log("eliminar dueno:", resp);
-        resp = JSON.parse(resp);
+
+        try {
+          resp = JSON.parse(resp);
+        } catch (e) {
+          console.error("Error parseando respuesta eliminar:", e, resp);
+          Swal.fire({
+            title: "Dueños",
+            text: "Error inesperado al eliminar",
+            icon: "error",
+          });
+          return;
+        }
+
         if (resp == "ok" || resp === true) {
           Swal.fire({
             title: "Dueños",
